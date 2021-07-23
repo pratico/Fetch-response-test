@@ -67,7 +67,7 @@ function elenco_post_reddit(subredditname, differencedateday){
                     let datapost = timeConverter(currPost.created_utc, "0");
                     let datapostmini = timeConverter(currPost.created_utc);
 
-                    if (differencecontrol(datapostmini, now_datemini) == differencedateday && currPost.url.includes("gfycat") != true && currPost.url.includes("v.redd.it") != true && arridpost.includes(currPost.id) != true && currPost.url.includes("www.reddit.com") != true && currPost.url.includes("redgifs.com") != true&& currPost.url.includes("youtu.be") != true ) {
+                    if (differencecontrol(datapostmini, now_datemini) == differencedateday && currPost.url.includes("gfycat") != true && currPost.url.includes("v.redd.it") != true && arridpost.includes(currPost.id) != true && currPost.url.includes("www.reddit.com") != true && currPost.url.includes("redgifs.com") != true && currPost.url.includes("youtu.be") != true && currPost.url.includes("i.imgur.com") != true) {
                         arridpost.push(currPost.id,);
                         document.getElementById("geeks").innerHTML = "Sono presenti " + arridpost.length + " immagini<br>";
 
@@ -75,7 +75,7 @@ function elenco_post_reddit(subredditname, differencedateday){
                         markup += `<div class="col-sm pos">
                                         <div class="title"> ${currPost.title} </div>
                                         <img src="${currPost.url}" style="width:200px;">
-                                        </br>
+                                        </br></br>
                                         <span>${currPost.url}</span>
                                     </div>`;
 
