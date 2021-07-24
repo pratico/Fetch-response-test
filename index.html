@@ -8,62 +8,45 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src='main.js?pzzpddh'></script>
-   
+    <script src='main.js?dde'></script>
+    
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60fbdd7a83fc3c00121c8dbd&product=sop' async='async'></script>
 </head>
 
 <body>
-    <div class="container">
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/it_IT/sdk.js#xfbml=1&version=v11.0" nonce="rzCuAbsn"></script>
+
+    <div class="container" style="background-color: burlywood; padding-top: 10px; margin-top: 10px;">
       <div class="row">
         <div class="col">&nbsp;</div>
         <div class="col">
-          <h3>posts from subreddit</h3>
+          <h3>Posts from subreddit</h3>
         </div>
         <div class="col">&nbsp;</div>
       </div>
       <div class="row">
         <div class="col">&nbsp;</div>
-        <div class="col">
+        <div class="col" id="divtest">
+          <div class="row">
+            <div class="col">Insert subreddit: <input type="text" id="num1" name="num1" /></div>
+            <div class="col" id="blink_text"><img src="image/tab.jpeg" alt="Press tab when done typing" style="width: 50px; margin-top: 20px;" /></div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div id="geeks"></div>
+            </div>
+          </div>
     
-          Insert subreddit: <input type="text" id="num1" name="num1" onchange="checkInput('num1');" /> <br />
-          Insert subreddit: <input type="text" id="num2" name="num2" onchange="checkInput('num2');" /> <br />
-          Insert subreddit: <input type="text" id="num3" name="num3" onchange="checkInput('num3');" /> <br />
-          Insert subreddit: <input type="text" id="num4" name="num4" onchange="checkInput('num4');" /> <br />
-          Insert subreddit: <input type="text" id="num5" name="num5" onchange="checkInput('num5');" /> <br />
-          Insert subreddit: <input type="text" id="num6" name="num6" onchange="checkInput('num6');" /> <br />
-          Insert subreddit: <input type="text" id="num7" name="num7" onchange="checkInput('num7');" /> <br />
-          Insert subreddit: <input type="text" id="num8" name="num8" onchange="checkInput('num8');" /> <br />
-          Insert subreddit: <input type="text" id="num9" name="num9" onchange="checkInput('num9');" /> <br />
-          Insert subreddit: <input type="text" id="num10" name="num10" onchange="checkInput('num10');" /> <br />
+          <div id="room_fileds"></div>
         </div>
         <div class="col">&nbsp;</div>
       </div>
-
-      <div class="row">
-        <div class="col">
-          <div id="geeks"></div>
-        </div>
-      </div>
-
-      <div class="row" id="rowo"></div>
+<div class="sharethis-inline-share-buttons"></div>
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="" data-layout="button_count" data-action="like" data-size="small" data-share="true"></div>
+<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>
+<div class="row" id="rowo"></div>
     </div>      
-    
-    
-    
-        <div class="options" style="display: none;">
-          <label>Post Type:</label>
-          <select class="post-type">:
-            <option value="new">Hot</option>
-            <option value="new">New</option>
-            <option value="top">Top</option>
-            <option value="random">Random</option>
-            <option value="rising">Rising</option>
-            <option value="controversial">Controversial</option>
-          </select>
-        </div>
-
-
-      
       
 </body>
 

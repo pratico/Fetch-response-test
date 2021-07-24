@@ -9,38 +9,17 @@ window.onload = function () {
     let now_utcnew = (now_utc / 1000);
     let differencedateday = "";
     let pos = "";
-    //console.log("data di oggi" + now_date);
 
-    //    let orautc = Date.UTC(2021, 07, 01);
-    //    let now_utc =  Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(),date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds());
-    /*let contenttoselect = document.getElementById("containerselect").innerHTML;
-    for (var k = 0; k <= 10; k++) {    
-        contenttoselect += `<div class="row" >
-                                <div class="col">
-                                    Insert subreddit and number of day previous to today: <input type="text" id="num` + k + `" name="num` + k + `" onchange="checkInput('num` + k + `');" /> <br />
-                                </div>
-                                <div class="col">
-                                    <select id='selectday` + k + `' class='mydiv'>` + optionnumber() + `</select> <br />
-                                </div>
-                            </div >`;
-        }
-*/
     const dropdown = document.querySelector(".post-type");
     const container = document.querySelector("#rowo");
 
 
-    //document.getElementById("num1").addEventListener("click", elenco_post_reddit(this.value, 1));
-//    document.getElementById('num1').addEventListener('change', function() {elenco_post_reddit(this.value, document.getElementById('daynum1').value);});
-    document.getElementById('num1').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});
-    document.getElementById('num2').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num3').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num4').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num5').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num6').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num7').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num8').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num9').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
-    document.getElementById('num10').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
+    document.getElementById('num1').addEventListener('change', eventolistener);
+
+   // document.getElementById('num2').addEventListener('change', function() {elenco_post_reddit(this.value, 1);});   
+    //document.getElementById('num1').addEventListener('change', function() {add_fields();});   
+    //document.getElementById('num2').addEventListener('change', function() {add_fields1();});   
+ 
   
 
 //******************************************** FUNZIONI ******************************************************************************************** */
@@ -70,40 +49,15 @@ function elenco_post_reddit(subredditname, differencedateday){
                     if (differencecontrol(datapostmini, now_datemini) == differencedateday && currPost.url.includes("gfycat") != true && currPost.url.includes("v.redd.it") != true && arridpost.includes(currPost.id) != true && currPost.url.includes("www.reddit.com") != true && currPost.url.includes("redgifs.com") != true && currPost.url.includes("youtu.be") != true && currPost.url.includes("i.imgur.com") != true) {
                         arridpost.push(currPost.id,);
                         document.getElementById("geeks").innerHTML = "Sono presenti " + arridpost.length + " immagini<br>";
-
+                        //document.getElementById("contoq").innerHTML = "Sono presenti " + arridpost.length + " immagini<br>";
                         markup = ``;
                         markup += `<div class="col-sm pos">
                                         <div class="title"> ${currPost.title} </div>
                                         <img src="${currPost.url}" style="width:200px;">
-                                        </br></br>
-                                        <span>${currPost.url}</span>
+                                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://modelsmust.blogspot.com/2021/07/all-natural.html;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>                                        
+                                        <div class="facebook"><a href="http://www.facebook.com/sharer.php?s=100">Condividi</a></div>
                                     </div>`;
-
-                            /*
-                            markup += `
-                            <a class="post" href="https://www.reddit.com/${currPost.permalink}">
-                            <div class="title"> ${currPost.title} </div>
-                            <div class="content"> 
-                            <span>Giorno utc:___ ${now_utc}</span>
-                            </br>
-                            <span>Creazione utc: ${currPost.created_utc * 1000}</span>
-                            </br>
-                            <span>Creazione utc: ${datapost}</span>
-                            </br>
-                            <span>${postType} posts from r/${subreddit} </span>
-                            </br>
-                            ${currPost.selftext} <br>
-                            <img src="${currPost.url}" style="width:400px;">
-                            </br></br>
-                            <span>${currPost.url}</span>
-                            </br>
-                            <span>Post id: ${currPost.id} </span>
-                            </div>
-                            <div class="author"> Posted by ${currPost.author} </div>
-                            </a>`;*/
-                        // Insert the markup HTML to our container 200 * 267
                         container.insertAdjacentHTML('afterbegin', markup);
-                        //containerselect.insertAdjacentHTML('afterbegin', contenttoselect);
                     }
                 }
             })
@@ -117,6 +71,85 @@ function elenco_post_reddit(subredditname, differencedateday){
     renderPosts("hot");
     
 }
+//---------------------------------funzione leggi cookie--------------------------------------------------------------------------------------------//    
+                        function leggiCookie(nomeCookie){
+                        if (document.cookie.length > 0)
+                        {
+                            var inizio = document.cookie.indexOf(nomeCookie + "=");
+                            if (inizio != -1)
+                            {
+                            inizio = inizio + nomeCookie.length + 1;
+                            var fine = document.cookie.indexOf(";",inizio);
+                            if (fine == -1) fine = document.cookie.length;
+                            return unescape(document.cookie.substring(inizio,fine));
+                            }else{
+                            return "";
+                            }
+                        }
+                        return "";
+                        }
+                        //var nome = leggiCookie('mio_nome');
+                        //document.write('Il tuo nome è: ' + nome);
+//---------------------------------funzione verifica cookie-----------------------------------------------------------------------------------------//
+                        function verificaCookie(){
+                        document.cookie = 'verifica_cookie';
+                        var testcookie = (document.cookie.indexOf('verifica_cookie') != -1) ? true : false;
+                        return testcookie;
+                        }
+                        //var test = verificaCookie();
+                        //if (test == true) alert('Il tuo browser accetta i cookie!');
+                        //else alert('I biscotti non ti piacciono :-(');
+//---------------------------------funzione cancella cookie-----------------------------------------------------------------------------------------//
+                        function cencellaCookie(nomeCookie) {
+                            scriviCookie(nomeCookie, '', -1);
+                        }
+                        //cancellaCookie('mio_nome');
+//---------------------------------funzione scrivi cookie-------------------------------------------------------------------------------------------//
+                        function scriviCookie(nomeCookie, valoreCookie, durataCookie) {
+                            var scadenza = new Date();
+                            var adesso = new Date();
+                            scadenza.setTime(adesso.getTime() + (parseInt(durataCookie) * 60000));
+                            document.cookie = nomeCookie + '=' + escape(valoreCookie) + '; expires=' + scadenza.toGMTString() + '; path=/';
+                        }
+                        //scriviCookie('mio_nome','massimiliano',60);
+//---------------------------------funzione aggiungi campi-------------------------------------------------------------------------------------------//
+                        function eventolistener() {
+                            elenco_post_reddit(this.value, 1);
+                            del_fields();
+                            //add_fields();
+                            document.getElementById('num1').addEventListener('change', eventolistener);
+                        }
+
+//---------------------------------funzione aggiungi campi-------------------------------------------------------------------------------------------//    
+                        function del_fields() {
+                            let d = document.getElementById("divtest");
+                            let s = document.getElementById("room_fileds");
+                            let valoreinput = document.getElementById("num1").value;
+                            s.innerHTML += '<div id="numTesto">Inserito: ' + valoreinput + '<span id="contoq"></span></div>';
+                            
+/*                            if(d.innerHTML.includes("input") == true) {
+                                d.innerHTML = '<div id="numTesto">Inserito: ' + valoreinput + '</div><br>';
+                            } else {
+                                d.innerHTML += '<div id="numTesto">Inserito: ' + valoreinput + '</div><br>';
+                            }*/
+                        }
+//---------------------------------funzione aggiungi campi-------------------------------------------------------------------------------------------//    
+                        function add_fields() {
+                            let d = document.getElementById("divtest");
+                            d.innerHTML += 'Insert subreddit: <input type="text" id="num1" name="num1" />';
+                        }
+//---------------------------------funzione aggiungi campi-------------------------------------------------------------------------------------------//    
+                        let room = 1;
+                        function add_fields1() {
+                            room++;
+                            let objTo = document.getElementById('room_fileds')
+                            let divtest = document.createElement("div");
+                            
+                            divtest.innerHTML = '<div class="contentinput">Insert subreddit:<span><input type="text" id="num1" name="num1" onchange="checkInput(\'num3\');" /></span></div>';
+                            //divtest.innerHTML = '<div class="label">Room ' + room +':</div><div class="content"><span>Width: <input type="text" style="width:48px;" name="width[]" value="" /><small>(ft)</small> X</span><span>Length: <input type="text" style="width:48px;" namae="length[]" value="" /><small>(ft)</small></span></div>';
+                        
+                            objTo.appendChild(divtest)
+                        }
 //---------------------------------funzione option --------------------------------------------------------------------------------------------------//    
                         function optionnumber(){
                             for (var b = 0; b <= 100; b++) {
@@ -124,18 +157,9 @@ function elenco_post_reddit(subredditname, differencedateday){
                             }
                             return selectmark;
                         }
-                            //document.write()
-//---------------------------------function eventlistener -------------------------------------------------------------------------------------------//    
-                                    /*function eventlistener(idpos) {
-                            let inputval = document.getElementById(idpos).innerText;
-                            document.getElementById(idpos).addEventListener('change', function () {
-                                elenco_post_reddit(inputval, 1);
-                                console.log('You selected: ', inputval);
-                                document.getElementById(inputval).disabled = true;
-                            });                        
-                        }*/
 //---------------------------------This function check input value ----------------------------------------------------------------------------------//    
                         function checkInput(pos) {
+                            add_fields();
                             document.getElementById(pos).disabled = true;
                             //var textInput = document.getElementById(textbox).value;
                             //console.log('You selected checkInput: ', pos);
