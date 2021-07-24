@@ -54,8 +54,6 @@ function elenco_post_reddit(subredditname, differencedateday){
                         markup += `<div class="col-sm pos">
                                         <div class="title"> ${currPost.title} </div>
                                         <img src="${currPost.url}" style="width:200px;">
-                                        <div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-layout="box_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://modelsmust.blogspot.com/2021/07/all-natural.html;src=sdkpreparse" class="fb-xfbml-parse-ignore">Condividi</a></div>                                        
-                                        <div class="facebook"><a href="http://www.facebook.com/sharer.php?s=100">Condividi</a></div>
                                     </div>`;
                         container.insertAdjacentHTML('afterbegin', markup);
                     }
